@@ -35,7 +35,7 @@ Evaluation showed **100% Precision, Recall, and F1-score**, indicating strong pe
 
 | Section      | Screenshot |
 |--------------|------------|
-| 🧠 Methodology | ![Methodology](https://github.com/Yash-Raj-96/Detect-and-De-identify-PII-in-clinical-notes/blob/main/data/Pictures%20&%20Report/Screenshot%202025-03-31%20134440.png?raw=true) |
+| 🧠  Workflow | ![ Workflow](https://github.com/Yash-Raj-96/Detect-and-De-identify-PII-in-clinical-notes/blob/main/data/Pictures%20&%20Report/Screenshot%202025-03-31%20134440.png?raw=true) |
 
 
 ### 1. **Data Collection**
