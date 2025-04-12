@@ -121,12 +121,6 @@ This project delivers a powerful and scalable solution for protecting PII in cli
 
 ---
 
-## 📚 References
-
-A comprehensive list of 13+ references is available in the report and codebase.
-
----
-
 ## 📎 License
 
 This project is licensed under the MIT License.
