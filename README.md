@@ -33,6 +33,8 @@ Evaluation showed **100% Precision, Recall, and F1-score**, indicating strong pe
 
 ## 🛠️ Methodology
 
+| Methodology | ![Methodology]([screenshots/output.png](https://github.com/Yash-Raj-96/Detect-and-De-identify-PII-in-clinical-notes/blob/main/data/Pictures%20&%20Report/Screenshot%202025-03-31%20134440.png?raw=true |
+
 ### 1. **Data Collection**
 - Clinical notes dataset sourced from Kaggle (unstructured text containing PII).
 
@@ -104,9 +106,9 @@ python app.py
 
 | Feature | Screenshot |
 |--------|-------------|
-| 🏠 Home Page | ![Home](screenshots/home.png) |
-| 📄 Upload Page | ![Upload](screenshots/upload.png) |
-| 🔐 De-identified Output | ![Output](screenshots/output.png) |
+| 🏠 Home Page | ![Home]([screenshots/home.png](https://github.com/Yash-Raj-96/Detect-and-De-identify-PII-in-clinical-notes/blob/main/data/Pictures%20&%20Report/Screenshot%202025-04-02%20122606.png?raw=true) |
+| 📄 Upload Page | ![Upload]([screenshots/upload.png](https://github.com/Yash-Raj-96/Detect-and-De-identify-PII-in-clinical-notes/blob/main/data/Pictures%20&%20Report/Screenshot%202025-04-02%20122850.png?raw=true) |
+| 🔐 De-identified Output | ![Output]([screenshots/output.png](https://github.com/Yash-Raj-96/Detect-and-De-identify-PII-in-clinical-notes/blob/main/data/Pictures%20&%20Report/Screenshot%202025-04-02%20123045.png?raw=true) |
 
 ---
 
