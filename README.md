@@ -104,11 +104,11 @@ python app.py
 
 ## 🌍 Screenshots
 
-| Feature | Screenshot |
-|--------|-------------|
-| 🏠 Home Page | ![Home]([screenshots/home.png](https://github.com/Yash-Raj-96/Detect-and-De-identify-PII-in-clinical-notes/blob/main/data/Pictures%20&%20Report/Screenshot%202025-04-02%20122606.png?raw=true) |
-| 📄 Upload Page | ![Upload]([screenshots/upload.png](https://github.com/Yash-Raj-96/Detect-and-De-identify-PII-in-clinical-notes/blob/main/data/Pictures%20&%20Report/Screenshot%202025-04-02%20122850.png?raw=true) |
-| 🔐 De-identified Output | ![Output]([screenshots/output.png](https://github.com/Yash-Raj-96/Detect-and-De-identify-PII-in-clinical-notes/blob/main/data/Pictures%20&%20Report/Screenshot%202025-04-02%20123045.png?raw=true) |
+| Page                  | Screenshot |
+|-----------------------|------------|
+| 🏠 Home Page          | ![Home](https://github.com/Yash-Raj-96/Detect-and-De-identify-PII-in-clinical-notes/blob/main/data/Pictures%20&%20Report/Screenshot%202025-04-02%20122606.png?raw=true) |
+| 📄 Upload Page        | ![Upload](https://github.com/Yash-Raj-96/Detect-and-De-identify-PII-in-clinical-notes/blob/main/data/Pictures%20&%20Report/Screenshot%202025-04-02%20122850.png?raw=true) |
+| 🔐 De-identified Output | ![Output](https://github.com/Yash-Raj-96/Detect-and-De-identify-PII-in-clinical-notes/blob/main/data/Pictures%20&%20Report/Screenshot%202025-04-02%20123045.png?raw=true) |
 
 ---
 
