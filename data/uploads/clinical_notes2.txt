@@ -1,0 +1,36 @@
+Patient Name: Mary Smith
+Patient ID: 89234
+Phone: (212) 555-7890
+E-Mail: mary.smith21@gmail.com
+Date of Visit: 05-March-2024
+Physician: Dr. Kulkarni
+Location : St. John's Medical College Hospital, Bangalore, Karnataka
+
+Chief Complaint:
+Patient reports persistent headache and dizziness for the past 5 days.
+
+History of Present Illness:
+Mrs. Smith is a 45-year-old female with a history of migraine and hypothyroidism. She describes the headache as throbbing, primarily in the frontal region, associated with nausea and light sensitivity. No episodes of loss of consciousness or blurred vision.
+
+Medications:
+
+Thyroxine 50 mcg OD
+Sumatriptan 50 mg PRN for migraine
+Allergies:
+Penicillin (rash and swelling)
+
+Physical Examination:
+
+HR: 76 bpm
+RR: 16 breaths/min
+Temp: 36.8°C
+O₂ Sat: 98% on room air
+Neurological: No focal deficits, alert and oriented
+ENT: No sinus tenderness
+Cardiovascular: Normal heart sounds, no murmurs
+Assessment & Plan:
+
+Migraine headache — Continue sumatriptan as needed, advise rest and hydration.
+Hypothyroidism — Continue Thyroxine; check TSH and adjust dosage if necessary.
+Advise stress management techniques and maintain headache diary.
+Follow-up in 2 weeks or earlier if symptoms worsen.
