@@ -33,9 +33,9 @@ Evaluation showed **100% Precision, Recall, and F1-score**, indicating strong pe
 
 ## 🛠️ Methodology
 
+| Section      | Screenshot |
 |--------------|------------|
 | 🧠 Methodology | ![Methodology](https://github.com/Yash-Raj-96/Detect-and-De-identify-PII-in-clinical-notes/blob/main/data/Pictures%20&%20Report/Screenshot%202025-03-31%20134440.png?raw=true) |
-
 
 
 ### 1. **Data Collection**
@@ -107,14 +107,13 @@ python app.py
 
 ## 🌍 Screenshots
 
-
+| Page                  | Screenshot |
+|-----------------------|------------|
 | 🏠 Home Page          | ![Home](https://github.com/Yash-Raj-96/Detect-and-De-identify-PII-in-clinical-notes/blob/main/data/Pictures%20&%20Report/Screenshot%202025-04-02%20122606.png?raw=true) |
 | 📄 Upload Page        | ![Upload](https://github.com/Yash-Raj-96/Detect-and-De-identify-PII-in-clinical-notes/blob/main/data/Pictures%20&%20Report/Screenshot%202025-04-02%20122850.png?raw=true) |
 | 🔐 De-identified Output | ![Output](https://github.com/Yash-Raj-96/Detect-and-De-identify-PII-in-clinical-notes/blob/main/data/Pictures%20&%20Report/Screenshot%202025-04-02%20123045.png?raw=true) |
 
 ---
-
-
 
 ## ✅ Conclusion
 
