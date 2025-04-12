@@ -1,0 +1,36 @@
+Patient Name: John Doe
+Patient ID: 56789
+Date of Visit: 14-February-2024
+Physician: Dr. Priya Rao
+Location: St. John's Medical College Hospital, Bangalore, Karnataka
+
+Chief Complaint:
+Patient presents with persistent chest pain and shortness of breath for the past 3 days.
+
+History of Present Illness:
+Mr. Doe is a male with a history of hypertension and Type 2 diabetes. He reports intermittent chest discomfort, which worsens with exertion. No prior history of myocardial infarction.
+
+Medications:
+
+Metformin 500mg BD
+Telmisartan 40mg OD
+Ecosprin 75mg OD
+Allergies:
+No known drug allergies.
+
+Physical Examination:
+
+BP: 140/90 mmHg
+HR: 88 bpm
+RR: 18 breaths/min
+Temp: 37°C
+O₂ Sat: 96% on room air
+Cardiovascular: Heart sounds normal, no murmurs or gallops.
+Respiratory: Lungs clear bilaterally.
+Extremities: No pedal edema.
+Assessment & Plan:
+
+Chest Pain – Likely angina. Order ECG, cardiac biomarkers (Trop I, CK-MB), and TMT (Treadmill Test).
+Hypertension – Continue Telmisartan, monitor BP regularly.
+Diabetes Mellitus Type 2 – Maintain Metformin, check HbA1c.
+Lipid Profile – Assess cholesterol levels; consider starting Atorvastatin if required.     take this clinical notes for testing

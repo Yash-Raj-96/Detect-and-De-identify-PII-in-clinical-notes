@@ -1,0 +1,2 @@
+John Doe visited the hospital on 2023-10-01.
+Patient ID: 12345, Name: Jane Smith, Location: New York.

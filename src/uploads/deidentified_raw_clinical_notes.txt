@@ -1,0 +1,35 @@
+Patient Name: [REDACTED_NAME]
+Patient ID: [REDACTED_ID]
+Date of Visit: [REDACTED_DATE]
+Physician: Dr. [REDACTED_NAME]
+Location: St. Mary’[REDACTED_ORG], [REDACTED_LOCATION]
+
+Chief Complaint:
+Patient presents with persistent chest pain and shortness of breath for [REDACTED_DATE].
+
+History of Present Illness:
+Mr. [REDACTED_NAME] is a [REDACTED_DATE] male with a history of hypertension and Type 2 diabetes. He reports intermittent chest discomfort, which worsens with exertion. No prior history of myocardial infarction.
+
+Medications:
+
+[REDACTED_NAME] [REDACTED_ORG]
+Lisinopril 10mg QD
+Aspirin 81mg QD
+Allergies:
+No known drug allergies.
+
+Physical Examination:
+
+[REDACTED_ORG]: 140/90 mmHg
+HR: 88 bpm
+RR: 18 breaths/min
+Temp: 98.6°[REDACTED_ORG]
+O2 Sat: 96% on room air
+Heart sounds normal, no murmurs or gallops. Lungs clear bilaterally. No lower extremity edema.
+
+Assessment & Plan:
+
+Chest Pain – Likely angina. [REDACTED_ORG], cardiac enzymes, and stress test.
+Hypertension – Continue Lisinopril, monitor [REDACTED_ORG].
+Diabetes Mellitus Type 2 – [REDACTED_NAME], check HbA1c.
+Lipid Panel – Assess cholesterol levels, consider statin therapy if needed.

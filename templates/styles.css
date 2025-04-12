@@ -1,0 +1,99 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f4f4f4;
+}
+.container {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+h1, h2 {
+    text-align: center;
+    color: #333;
+}
+.content {
+    display: flex;
+    gap: 20px;
+    flex-grow: 1;
+}
+.box {
+    flex: 1;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+    overflow-y: auto;
+}
+textarea, .deidentified-notes-box {
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    background-color: #f9f9f9;
+    font-size: 14px;
+    resize: none;
+    overflow-y: auto;
+}
+.micro-averaged-section {
+    margin-top: 20px;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+}
+.scores-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+.scores-table th, .scores-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+.scores-table th {
+    background-color: #f2f2f2;
+}
+.form-buttons {
+    display: flex;
+    justify-content: center;
+    margin: 10px 0;
+}
+.form-buttons button {
+    padding: 10px 15px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    margin: 5px;
+}
+.form-buttons button[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+}
+.form-buttons button[type="submit"]:hover {
+    background-color: #45a049;
+}
+.form-buttons button[type="reset"] {
+    background-color: #f44336;
+    color: white;
+}
+.form-buttons button[type="reset"]:hover {
+    background-color: #d32f2f;
+}
+/* Redaction Styles */
+.redacted-name { color: #b71c1c; background-color: #ffebee; } /* Dark Red */
+.redacted-date { color: #0d47a1; background-color: #e3f2fd; } /* Deep Blue */
+.redacted-location { color: #1b5e20; background-color: #e8f5e9; } /* Dark Green */
+.redacted-org { color: #4a148c; background-color: #f3e5f5; } /* Deep Purple */
+.redacted-id { color: #e65100; background-color: #fff3e0; } /* Deep Orange */
+.redacted-phone { color: #004d40; background-color: #e0f2f1; } /* Teal */
+.redacted-email { color: #880e4f; background-color: #fce4ec; } /* Dark Pink */
+.redacted-generic { color: #37474f; background-color: #eceff1; } /* Dark Gray */

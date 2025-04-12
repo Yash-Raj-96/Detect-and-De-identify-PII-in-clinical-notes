@@ -1,0 +1,2 @@
+[REDACTED_NAME] visited the hospital on [REDACTED_DATE].
+Patient ID: [REDACTED_DATE], Name: [REDACTED_NAME], Location: [REDACTED_LOCATION].

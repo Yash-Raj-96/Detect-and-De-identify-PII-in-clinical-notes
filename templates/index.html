@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PII Detection and De-identification</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2 {
+            text-align: center;
+            color: #2c3e50;
+        }
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        h2 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: #34495e;
+        }
+
+        /* Textarea and De-identified Notes Box */
+        textarea, .deidentified-notes-box {
+            width: 100%;
+            height: 300px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            background-color: #f9f9f9;
+            font-size: 14px;
+            resize: none;
+            overflow-y: auto;
+            border-radius: 8px;
+            line-height: 1.6;
+        }
+        textarea::-webkit-scrollbar, .deidentified-notes-box::-webkit-scrollbar {
+            width: 8px;
+        }
+        textarea::-webkit-scrollbar-thumb, .deidentified-notes-box::-webkit-scrollbar-thumb {
+            background-color: #888;
+            border-radius: 4px;
+        }
+
+        /* Form Buttons */
+        .form-buttons {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+            gap: 15px;
+        }
+        .form-buttons button {
+            padding: 12px 24px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+        .form-buttons button[type="submit"] {
+            background-color: #28a745;
+            color: white;
+        }
+        .form-buttons button[type="submit"]:hover {
+            background-color: #218838;
+        }
+        .form-buttons button[type="reset"] {
+            background-color: #dc3545;
+            color: white;
+        }
+        .form-buttons button[type="reset"]:hover {
+            background-color: #c82333;
+        }
+
+        /* Scores Table */
+        .scores-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .scores-table th, .scores-table td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: center;
+        }
+        .scores-table th {
+            background-color: #34495e;
+            color: white;
+            font-weight: 600;
+        }
+        .scores-table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .scores-table tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        /* Redaction Highlights */
+        .pii-highlight {
+            font-weight: bold;
+            padding: 3px 6px;
+            border-radius: 4px;
+        }
+        .redacted-name { color: #b71c1c; background-color: #ffebee; } /* Red */
+        .redacted-date { color: #0d47a1; background-color: #e3f2fd; } /* Blue */
+        .redacted-location { color: #1b5e20; background-color: #e8f5e9; } /* Green */
+        .redacted-org { color: #4a148c; background-color: #f3e5f5; } /* Purple */
+        .redacted-cardinal { color: #bf360c; background-color: #fbe9e7; } /* Deep Orange */
+        .redacted-id { color: #e65100; background-color: #fff3e0; } /* Orange */
+        .redacted-phone { color: #004d40; background-color: #e0f2f1; } /* Teal */
+        .redacted-email { color: #880e4f; background-color: #fce4ec; } /* Pink */
+        .redacted-address { color: #3e2723; background-color: #efebe9; } /* Brown */
+        .redacted-medication { color: #1a237e; background-color: #e8eaf6; } /* Indigo */
+        .redacted-disease { color: #4e342e; background-color: #efebe9; } /* Brown */
+        .redacted-lab_test { color: #006064; background-color: #e0f7fa; } /* Cyan */
+        .redacted-lab_result { color: #33691e; background-color: #f1f8e9; } /* Light Green */
+        .redacted-vital_sign { color: #ff6f00; background-color: #fff8e1; } /* Amber */
+        .redacted-procedure { color: #01579b; background-color: #e1f5fe; } /* Light Blue */
+        .redacted-hba1c { color: #6a1b9a; background-color: #f3e5f5; } /* Deep Purple */
+        .redacted-glucose { color: #1b5e20; background-color: #e8f5e9; } /* Green */
+        .redacted-cholesterol { color: #c62828; background-color: #ffebee; } /* Dark Red */
+        .redacted-tablet { color: #6a1b9a; background-color: #f3e5f5; } /* Deep Purple */
+        .redacted-section { color: #37474f; background-color: #eceff1; } /* Gray for sections */
+        .redacted-generic { color: #37474f; background-color: #eceff1; } /* Gray */
+
+        /* New Redaction Categories */
+        .redacted-wbc { color: #1a237e; background-color: #e8eaf6; } /* Indigo */
+        .redacted-rbc { color: #006064; background-color: #e0f7fa; } /* Cyan */
+        .redacted-hgb { color: #33691e; background-color: #f1f8e9; } /* Light Green */
+        .redacted-hct { color: #ff6f00; background-color: #fff8e1; } /* Amber */
+        .redacted-mcv { color: #01579b; background-color: #e1f5fe; } /* Light Blue */
+        .redacted-mch { color: #6a1b9a; background-color: #f3e5f5; } /* Deep Purple */
+        .redacted-mchc { color: #1b5e20; background-color: #e8f5e9; } /* Green */
+        .redacted-rdw { color: #c62828; background-color: #ffebee; } /* Dark Red */
+        .redacted-plt-ct { color: #37474f; background-color: #eceff1; } /* Gray */
+        .redacted-pt { color: #1a237e; background-color: #e8eaf6; } /* Indigo */
+        .redacted-ptt { color: #006064; background-color: #e0f7fa; } /* Cyan */
+        .redacted-inrpt { color: #33691e; background-color: #f1f8e9; } /* Light Green */
+        .redacted-ckcpk { color: #ff6f00; background-color: #fff8e1; } /* Amber */
+        .redacted-amylase { color: #01579b; background-color: #e1f5fe; } /* Light Blue */
+        .redacted-calcium { color: #6a1b9a; background-color: #f3e5f5; } /* Deep Purple */
+        .redacted-phos { color: #1b5e20; background-color: #e8f5e9; } /* Green */
+        .redacted-mg { color: #c62828; background-color: #ffebee; } /* Dark Red */
+        .redacted-lactate { color: #37474f; background-color: #eceff1; } /* Gray */
+        .redacted-name { color: #1a237e; background-color: #e8eaf6; } /* Indigo */
+        .redacted-k { color: #006064; background-color: #e0f7fa; } /* Cyan */
+        .redacted-cl { color: #33691e; background-color: #f1f8e9; } /* Light Green */
+        .redacted-hco3 { color: #ff6f00; background-color: #fff8e1; } /* Amber */
+        .redacted-ck { color: #1b5e20; background-color: #e8f5e9; } /* Green */
+        .redacted-tsh { color: #01579b; background-color: #e1f5fe; } /* Light Blue */
+
+        /* Side-by-Side Layout */
+        .side-by-side {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 30px;
+        }
+        .deidentified-notes-box p {
+            margin-bottom: 1em;
+            line-height: 1.6;
+        }
+
+        /* Responsive Design */
+        @media screen and (max-width: 768px) {
+            .side-by-side {
+                grid-template-columns: 1fr;
+            }
+            h1 {
+                font-size: 2rem;
+            }
+            h2 {
+                font-size: 1.5rem;
+            }
+        }
+
+        /* Fade-out Animation */
+        .fade-out {
+            opacity: 0;
+            transition: opacity 0.8s ease-out;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>🔍 PII Detection and De-identification</h1>
+
+    <form method="POST" enctype="multipart/form-data" id="piiForm">
+        <input type="file" name="file" accept=".txt,.csv" required aria-label="Upload clinical notes file">
+        <div class="form-buttons">
+            <button type="submit">Upload & Process</button>
+            <button type="reset" id="resetButton">Reset</button>
+        </div>
+    </form>
+
+    {% if original %}
+    <div class="result" id="resultSection">
+        <div class="side-by-side">
+            <div>
+                <h2>📄 Original Notes</h2>
+                <textarea readonly>{{ original | join(' ') }}</textarea>
+            </div>
+            <div>
+                <h2>🛑 De-identified Notes</h2>
+                <div class="deidentified-notes-box">
+                    {% for line in deidentified %}
+                        <p>
+                            {{
+                                line
+                                | replace("[REDACTED_NAME]", "<span class='pii-highlight redacted-name'>[REDACTED_NAME]</span>")
+                                | replace("[REDACTED_DATE]", "<span class='pii-highlight redacted-date'>[REDACTED_DATE]</span>")
+                                | replace("[REDACTED_LOCATION]", "<span class='pii-highlight redacted-location'>[REDACTED_LOCATION]</span>")
+                                | replace("[REDACTED_ORG]", "<span class='pii-highlight redacted-org'>[REDACTED_ORG]</span>")
+                                | replace("[REDACTED_CARDINAL]", "<span class='pii-highlight redacted-cardinal'>[REDACTED_CARDINAL]</span>")
+                                | replace("[REDACTED_ID]", "<span class='pii-highlight redacted-id'>[REDACTED_ID]</span>")
+                                | replace("[REDACTED_PHONE]", "<span class='pii-highlight redacted-phone'>[REDACTED_PHONE]</span>")
+                                | replace("[REDACTED_EMAIL]", "<span class='pii-highlight redacted-email'>[REDACTED_EMAIL]</span>")
+                                | replace("[REDACTED_ADDRESS]", "<span class='pii-highlight redacted-address'>[REDACTED_ADDRESS]</span>")
+                                | replace("[REDACTED_MEDICATION]", "<span class='pii-highlight redacted-medication'>[REDACTED_MEDICATION]</span>")
+                                | replace("[REDACTED_DISEASE]", "<span class='pii-highlight redacted-disease'>[REDACTED_DISEASE]</span>")
+                                | replace("[REDACTED_LAB_TEST]", "<span class='pii-highlight redacted-lab_test'>[REDACTED_LAB_TEST]</span>")
+                                | replace("[REDACTED_LAB_RESULT]", "<span class='pii-highlight redacted-lab_result'>[REDACTED_LAB_RESULT]</span>")
+                                | replace("[REDACTED_VITAL_SIGN]", "<span class='pii-highlight redacted-vital_sign'>[REDACTED_VITAL_SIGN]</span>")
+                                | replace("[REDACTED_PROCEDURE]", "<span class='pii-highlight redacted-procedure'>[REDACTED_PROCEDURE]</span>")
+                                | replace("[REDACTED_HBA1C]", "<span class='pii-highlight redacted-hba1c'>[REDACTED_TERMS]</span>")
+                                | replace("[REDACTED_GLUCOSE]", "<span class='pii-highlight redacted-glucose'>[REDACTED_TERMS]</span>")
+                                | replace("[REDACTED_CHOLES]", "<span class='pii-highlight redacted-cholesterol'>[REDACTED_TERMS]</span>")
+                                | replace("[REDACTED_TABLET]", "<span class='pii-highlight redacted-tablet'>[REDACTED_TABLET]</span>")
+                                | replace("[REDACTED_SECTION]", "<span class='pii-highlight redacted-section'>[REDACTED_SECTION]</span>")
+                                | replace("[REDACTED_WBC]", "<span class='pii-highlight redacted-wbc'>[REDACTED_TERMS]</span>")
+                                | replace("[REDACTED_RBC]", "<span class='pii-highlight redacted-rbc'>[REDACTED_TERMS]</span>")
+                                | replace("[REDACTED_HGB]", "<span class='pii-highlight redacted-hgb'>[REDACTED_TERMS]</span>")
+                                | replace("[REDACTED_HCT]", "<span class='pii-highlight redacted-hct'>[REDACTED_TERMS]</span>")
+                                | replace("[REDACTED_MCV]", "<span class='pii-highlight redacted-mcv'>[REDACTED_TERMS]</span>")
+                                | replace("[REDACTED_MCH]", "<span class='pii-highlight redacted-mch'>[REDACTED_TERMS]</span>")
+                                | replace("[REDACTED_MCHC]", "<span class='pii-highlight redacted-mchc'>[REDACTED_TERMS]</span>")
+                                | replace("[REDACTED_RDW]", "<span class='pii-highlight redacted-rdw'>[REDACTED_TERMS]</span>")
+                                | replace("[REDACTED_PLT_CT]", "<span class='pii-highlight redacted-plt-ct'>[REDACTED_TERMS]</span>")
+                                | replace("[REDACTED_PT]", "<span class='pii-highlight redacted-pt'>[REDACTED_TERMS]</span>")
+                                | replace("[REDACTED_PTT]", "<span class='pii-highlight redacted-ptt'>[REDACTED_TERMS]</span>")
+                                | replace("[REDACTED_INRPT]", "<span class='pii-highlight redacted-inrpt'>[REDACTED_TERMS]</span>")
+                                | replace("[REDACTED_CKCPK]", "<span class='pii-highlight redacted-ckcpk'>[REDACTED_TERMS]</span>")
+                                | replace("[REDACTED_AMYLASE]", "<span class='pii-highlight redacted-amylase'>[REDACTED_TERMS]</span>")
+                                | replace("[REDACTED_CALCIUM]", "<span class='pii-highlight redacted-calcium'>[REDACTED_TERMS]</span>")
+                                | replace("[REDACTED_PHOS]", "<span class='pii-highlight redacted-phos'>[REDACTED_TERMS]</span>")
+                                | replace("[REDACTED_MG]", "<span class='pii-highlight redacted-mg'>[REDACTED_TERMS]</span>")
+                                | replace("[REDACTED_LACTATE]", "<span class='pii-highlight redacted-lactate'>[REDACTED_TERMS]</span>")
+                                | replace("[REDACTED_NAME]", "<span class='pii-highlight redacted-na'>[REDACTED_NAME]</span>")
+                                | replace("[REDACTED_K]", "<span class='pii-highlight redacted-k'>[REDACTED_TERMS]</span>")
+                                | replace("[REDACTED_CL]", "<span class='pii-highlight redacted-cl'>[REDACTED_TERMS]</span>")
+                                | replace("[REDACTED_HCO3]", "<span class='pii-highlight redacted-hco3'>[REDACTED_TERMS]</span>")
+                                | replace("[REDACTED_CK]", "<span class='pii-highlight redacted-ck'>[REDACTED_TERMS]</span>")
+                                | replace("[REDACTED_TSH]", "<span class='pii-highlight redacted-tsh'>[REDACTED_TERMS]</span>")
+                                | replace("[REDACTED]", "<span class='pii-highlight redacted-generic'>[REDACTED]</span>")
+                                | safe
+                            }}
+                        </p>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="micro-averaged-section" id="scoresSection">
+        <h2>📊 Micro-Averaged Scores</h2>
+        <table class="scores-table">
+            <thead>
+            <tr>
+                <th>Category</th>
+                <th>Tagger</th>
+                <th>Language</th>
+                <th>Dataset</th>
+                <th>F1 Score</th>
+                <th>Precision</th>
+                <th>Recall</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>PII Detection</td>
+                <td>spaCy</td>
+                <td>English</td>
+                <td>Clinical Notes</td>
+                <td>{{ scores.f1 }}</td>
+                <td>{{ scores.precision }}</td>
+                <td>{{ scores.recall }}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    {% endif %}
+</div>
+
+<script>
+    document.getElementById("resetButton").addEventListener("click", function () {
+        const resultSection = document.getElementById("resultSection");
+        const scoresSection = document.getElementById("scoresSection");
+        if (resultSection) resultSection.classList.add("fade-out");
+        if (scoresSection) scoresSection.classList.add("fade-out");
+        setTimeout(() => {
+            if (resultSection) resultSection.style.display = 'none';
+            if (scoresSection) scoresSection.style.display = 'none';
+        }, 800);
+    });
+</script>
+</body>
+</html>

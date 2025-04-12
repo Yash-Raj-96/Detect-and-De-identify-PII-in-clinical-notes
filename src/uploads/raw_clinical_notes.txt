@@ -1,0 +1,35 @@
+Patient Name: John Doe
+Patient ID: 56789
+Date of Visit: 2024-02-14
+Physician: Dr. Emily Carter
+Location: St. Mary’s Hospital, New York
+
+Chief Complaint:
+Patient presents with persistent chest pain and shortness of breath for the past 3 days.
+
+History of Present Illness:
+Mr. Doe is a 55-year-old male with a history of hypertension and Type 2 diabetes. He reports intermittent chest discomfort, which worsens with exertion. No prior history of myocardial infarction.
+
+Medications:
+
+Metformin 500mg BID
+Lisinopril 10mg QD
+Aspirin 81mg QD
+Allergies:
+No known drug allergies.
+
+Physical Examination:
+
+BP: 140/90 mmHg
+HR: 88 bpm
+RR: 18 breaths/min
+Temp: 98.6°F
+O2 Sat: 96% on room air
+Heart sounds normal, no murmurs or gallops. Lungs clear bilaterally. No lower extremity edema.
+
+Assessment & Plan:
+
+Chest Pain – Likely angina. Order ECG, cardiac enzymes, and stress test.
+Hypertension – Continue Lisinopril, monitor BP.
+Diabetes Mellitus Type 2 – Maintain Metformin, check HbA1c.
+Lipid Panel – Assess cholesterol levels, consider statin therapy if needed.
